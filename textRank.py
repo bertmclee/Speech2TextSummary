@@ -1,5 +1,4 @@
 #-*- encoding:utf-8 -*-
-from __future__ import print_function
 import codecs
 from textrank4zh import TextRank4Keyword, TextRank4Sentence
 import sys
