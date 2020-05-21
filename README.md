@@ -16,7 +16,7 @@
 ## 1. Preprocessing - Set Input File format as .wav
 - 選好要轉換的Youtube課程/教學影片/會議錄音
 ![alt text](youtubeBERT.png "youtubeBERT")
-:e.g. 台大李宏毅老師的BERT課程:
+<center>e.g. 台大李宏毅老師的BERT課程<center>
 
 - 將檔案下載並轉換為.wav檔 (https://www.savethevideo.com/convert)
 
@@ -30,27 +30,27 @@
 - Silence Detection 沈默段落(斷點)偵測：
 
 ``` =
-**使用套件**：pydub
+使用套件：pydub
 
-**主要參數**：
-    **min_silence_len**(ms)：最短沈默時間(沈默超過此時間才算是[沈默段落])
+主要參數：
+    min_silence_len(ms)：最短沈默時間(沈默超過此時間才算是[沈默段落])
         預設為1000，實測1200效果較好
-    **silence_thresh**(dBFS)：沈默閾值(音量小於次數字才會當作是沈默)
+    silence_thresh(dBFS)：沈默閾值(音量小於次數字才會當作是沈默)
         預設為-16，實測-42效果較好(跟聲音檔音量有關)
-    **chunk_silent**(ms)：每個[聲音段落]前後的添加的沈默時間
+    chunk_silent(ms)：每個[聲音段落]前後的添加的沈默時間
         e.g. 聲音段落A => 聲音段落A'(1秒沈默+聲音段落A+1秒沈默)
         預設為10
-    **chunk_expand**(ms)：每個[聲音段落]延伸的時間
+    chunk_expand(ms)：每個[聲音段落]延伸的時間
         e.g. 聲音段落A(05:00-07:00) => 聲音段落A'(04:55-07:05)
 ```
 
 ![alt text](SilenceDetection.png "SilenceDetection")
-:上圖黑色橫線即為silence_thresh; 藍色縱線分割出[沈默區間]和[聲音區間]:
+<center>上圖黑色橫線即為silence_thresh; 藍色縱線分割出[沈默區間]和[聲音區間]<center>
 
 #### (2) Audio Chunk to Text Sentence [聲音段落]轉換為[文字句子]：
 - 透過Google中文語音辨識API將語音轉為文字
 ```=
-**使用套件**：speech_recognition
+使用套件：speech_recognition
 rec = r.recognize_google(audio_listened, language = 'zh-tw')
 ```
 ### 2nd Method:
@@ -67,7 +67,7 @@ rec = r.recognize_google(audio_listened, language = 'zh-tw')
 
 #### 此處我們使用提取式摘要的其中一個演算法：TextRank
 ![alt text](TextRank.png "TextRank")
-:TextRank (Sim: Sentence Similarity; Sent: Sentence):
+<center>TextRank (Sim: Sentence Similarity; Sent: Sentence)<center>
 
 - 將每個句子視為一個節點
 - 將句子與句子之間的相似度視為無向邊的權重
