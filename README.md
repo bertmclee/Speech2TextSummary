@@ -7,7 +7,7 @@
 *效果還有待加強就是了…*
 
 ```
-**生成流程**：
+生成流程：
 1. Set input file format as .wav | 確認語音檔格式(個人是使用.wav檔)
 2. Speech to Text | 將語音檔轉換為文字檔(逐字稿)
 3. Text Summarization | 將文字檔轉換成重點摘要
@@ -16,7 +16,7 @@
 ## 1. Preprocessing - Set Input File format as .wav
 - 選好要轉換的Youtube課程/教學影片/會議錄音
 ![alt text](youtubeBERT.png "youtubeBERT")
-<center>e.g. 台大李宏毅老師的BERT課程<center>
+<center>e.g. 台大李宏毅老師的BERT課程</center>
 
 - 將檔案下載並轉換為.wav檔 (https://www.savethevideo.com/convert)
 
@@ -45,7 +45,7 @@
 ```
 
 ![alt text](SilenceDetection.png "SilenceDetection")
-<center>上圖黑色橫線即為silence_thresh; 藍色縱線分割出[沈默區間]和[聲音區間]<center>
+<center>上圖黑色橫線即為silence_thresh; 藍色縱線分割出[沈默區間]和[聲音區間]</center>
 
 #### (2) Audio Chunk to Text Sentence [聲音段落]轉換為[文字句子]：
 - 透過Google中文語音辨識API將語音轉為文字
@@ -67,7 +67,7 @@ rec = r.recognize_google(audio_listened, language = 'zh-tw')
 
 #### 此處我們使用提取式摘要的其中一個演算法：TextRank
 ![alt text](TextRank.png "TextRank")
-<center>TextRank (Sim: Sentence Similarity; Sent: Sentence)<center>
+<center>TextRank (Sim: Sentence Similarity; Sent: Sentence)</center>
 
 - 將每個句子視為一個節點
 - 將句子與句子之間的相似度視為無向邊的權重
