@@ -24,7 +24,7 @@
 
 ## 2. Speech to Text
 ### 1st Method:
-<em>此處參考：[geeksforgeeks](https://www.geeksforgeeks.org/python-speech-recognition-on-large-audio-files/)</em>
+*此處參考：[geeksforgeeks](https://www.geeksforgeeks.org/python-speech-recognition-on-large-audio-files/)*
 
 #### (1) Audio Chunk Segmentation 聲音段落切割：
 - Silence Detection 沈默段落(斷點)偵測：
@@ -59,7 +59,7 @@ rec = r.recognize_google(audio_listened, language = 'zh-tw')
 
 
 ## 3. Text Summarization - TextRank
-<em>此處參考：[TextRank4ZH](https://github.com/letiantian/TextRank4ZH)</em>
+*此處參考：[TextRank4ZH](https://github.com/letiantian/TextRank4ZH)*
 
 ### 文本摘要(Text Summarization)大致可以分為兩類：
 - **提取式摘要(Extraction-based summarization)**：這些方法是從一段文本中提取幾個部分，例如短語和句子，並計算出它們不同的權重，並按照重要性將它們堆疊在一起以生成摘要。
