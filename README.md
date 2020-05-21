@@ -3,8 +3,9 @@ Generate Text Summary/Report from Chinese Speech with Python
 
 想像你距離繳交500字課程心得的死線剩下一小時，但線上課程影片卻還有三個小時之久…；又或著慣老闆給你一個三小時的會議錄音檔，要你在一小時內做出重點摘要…，你是選擇放棄、死亡、或著我就爛？
 沒事，自從我學會Python後，心得都一百分，老闆都很滿意，因為我花一個晚上簡單整理了線上免費開源資源，以後心得都可以無(人)腦生成了。
-效果還有待加強就是了…
-```bash 生成流程：
+<em>效果還有待加強就是了…</em>
+```bash 
+生成流程：
 1. Set input file format as .wav | 確認語音檔格式(個人是使用.wav檔)
 2. Speech to Text | 將語音檔轉換為文字檔(逐字稿)
 3. Text Summarization | 將文字檔轉換成重點摘要
@@ -19,10 +20,10 @@ e.g. 台大李宏毅老師的BERT課程
 
 
 ## 2. Speech to Text
-# 1st Method:
+### 1st Method:
 <em>此處參考：[geeksforgeeks](https://www.geeksforgeeks.org/python-speech-recognition-on-large-audio-files/)</em>
 
-### (1) Audio Chunk Segmentation 聲音段落切割：
+#### (1) Audio Chunk Segmentation 聲音段落切割：
 Silence Detection 沈默段落(斷點)偵測：
 
 ``` 
@@ -38,19 +39,19 @@ Silence Detection 沈默段落(斷點)偵測：
         預設為10
     chunk_expand(ms)：每個[聲音段落]延伸的時間
         e.g. 聲音段落A(05:00-07:00) => 聲音段落A'(04:55-07:05)
-        實測1000效果較好
-        ```
+```
+
 ![alt text](SilenceDetection.png "SilenceDetection")
 上圖黑色橫線即為silence_thresh; 
 藍色縱線分割出[沈默區間]和[聲音區間]
 
-### (2) Audio Chunk to Text Sentence [聲音段落]轉換為[文字句子]：
+#### (2) Audio Chunk to Text Sentence [聲音段落]轉換為[文字句子]：
 透過Google中文語音辨識API將語音轉為文字
 ```
 使用套件：speech_recognition
 rec = r.recognize_google(audio_listened, language = 'zh-tw')
 ```
-# 2nd Method:
+### 2nd Method:
 另外，我也有試過由台灣AI Lab開發的雅婷逐字稿(聲音轉文字服務)，不過個人嘗試後覺得效果沒有很好。
 
 
@@ -61,7 +62,7 @@ rec = r.recognize_google(audio_listened, language = 'zh-tw')
 - 提取式摘要(Extraction-based summarization)：這些方法是從一段文本中提取幾個部分，例如短語和句子，並計算出它們不同的權重，並按照重要性將它們堆疊在一起以生成摘要。
 - 抽象式摘要(Abstraction-based summarization)：這些方法使用進階的 NLP(自然語言)技術生成全新的摘要。這些摘要的某些部分甚至可能沒有在原始文本中出現。
 
-# 此處我們使用提取式摘要的其中一個演算法：TextRank
+#### 此處我們使用提取式摘要的其中一個演算法：TextRank
 ![alt text](TextRank.png "TextRank")
 TextRank (Sim: Sentence Similarity; Sent: Sentence)
 
@@ -89,10 +90,10 @@ Sent Idx: 33, Weight: 0.0309
 ---
 
 ## 小結：
-# Speech to Text的效果並不好
+### Speech to Text的效果並不好
 - 逐字稿生成對於參數的敏感度相當高，因此需要比較多的力氣選取較適合該音檔的參數。
 - Google提供的免費語音辨識服務功能有限，無法針對Speech的主題調整Language Model等等，其他進階的語音辨識服務(包括Amazon, IBM, 百度…)都需付費，未來有大量需求的話可以考慮。
 
-# 未來嘗試方向
+### 未來嘗試方向
 - 針對語音辨識的部分，自己做模型，才能按照需求去做加強。(當初不好好修琳山大師的DSP…)
 - 針對文本摘要的部分，嘗試[抽象式摘要]模型。
