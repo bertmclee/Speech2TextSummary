@@ -1,5 +1,4 @@
 # Speech2TextSummary
-Generate Text Summary/Report from Chinese Speech with Python
 
 想像你距離繳交500字課程心得的死線剩下一小時，但線上課程影片卻還有三個小時之久…；又或著慣老闆給你一個三小時的會議錄音檔，要你在一小時內做出重點摘要…，你是選擇放棄、死亡、或著我就爛？
 沒事，自從我學會Python後，心得都一百分，老闆都很滿意，因為我花一個晚上簡單整理了線上免費開源資源，以後心得都可以無(人)腦生成了。
