@@ -10,7 +10,7 @@
 生成流程：
 1. Set input file format as .wav | 確認語音檔格式(個人是使用.wav檔)
 2. Speech to Text | 將語音檔轉換為文字檔(逐字稿)
-	* pip install speech_recognition
+	* pip install speechRecognition
 	* pip install pydub
 	* 將修改後的silence.py取代原pydub資料夾的silence.py (e.g./Users/李董/anaconda3/lib/python3.7/site-packages/pydub)
 	* 執行 speech2Text.py
